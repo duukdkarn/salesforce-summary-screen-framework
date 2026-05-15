@@ -1,0 +1,111 @@
+<template>
+  <div class="sectionBox slds-box slds-theme_default">
+    <!-- header row (hidden in bare mode) -->
+    <template if:true={showHeader}>
+      <div class="sectionHeader" role="button" tabindex="0" aria-expanded={isVisible} onclick={toggleSection} onkeydown={handleKeydown}>
+        <div class="chevronColumn">
+          <lightning-icon icon-name={iconName} size="xx-small"></lightning-icon>
+        </div>
+        <div class="collapseTitleContainer">
+          <h4 class="collapseTitle slds-text-heading_small">{tableTitle}</h4>
+        </div>
+      </div>
+    </template>
+    
+    <!-- table body: visible when expanded OR always in bare mode -->
+    <template if:true={showBody}>
+      <!-- Only add sectionBodyWrapper when NOT in bare mode -->
+      <template if:false={bare}>
+        <div class="sectionBodyWrapper">
+          <div class="chevronColumn"></div>
+          <div class="sectionBody">
+            <div class="tableContainer">
+              <table class="slds-table slds-table_cell-buffer">
+                <thead>
+                  <tr>
+                    <template for:each={columns} for:item="col">
+                      <th scope="col" key={col.fieldName}>
+                        <div class="slds-truncate" title={col.label}>{col.label}</div>
+                      </th>
+                    </template>
+                  </tr>
+                </thead>
+                <tbody>
+                  <template for:each={processedTableData} for:item="row">
+                    <tr key={row.id}>
+                      <template for:each={row.cells} for:item="cell">
+                        <td key={cell.key}>
+                          <div class="slds-truncate" title={cell.value}>{cell.value}</div>
+                        </td>
+                      </template>
+                    </tr>
+                  </template>
+                </tbody>
+                <template if:true={shouldShowTotals}>
+                  <tfoot>
+                    <tr class="totalRow">
+                      <template for:each={totalRow.cells} for:item="cell">
+                        <td key={cell.key} class="totalCell">
+                          <div class="slds-truncate totalValue" title={cell.value}>
+                            <template if:true={cell.isTotal}><strong>{cell.value}</strong></template>
+                            <template if:false={cell.isTotal}>{cell.value}</template>
+                          </div>
+                        </td>
+                      </template>
+                    </tr>
+                  </tfoot>
+                </template>
+              </table>
+            </div>
+          </div>
+        </div>
+      </template>
+      
+      <!-- In bare mode, render table directly without wrapper -->
+      <template if:true={bare}>
+        <div class="tableContainer">
+          <table class="slds-table slds-table_cell-buffer">
+            <thead>
+              <tr>
+                <template for:each={columns} for:item="col">
+                  <th scope="col" key={col.fieldName}>
+                    <div class="slds-truncate" title={col.label}>{col.label}</div>
+                  </th>
+                </template>
+              </tr>
+            </thead>
+            <tbody>
+              <template for:each={processedTableData} for:item="row">
+                <tr key={row.id}>
+                  <template for:each={row.cells} for:item="cell">
+                    <td key={cell.key}>
+                      <div class="slds-truncate" title={cell.value}>{cell.value}</div>
+                    </td>
+                  </template>
+                </tr>
+              </template>
+            </tbody>
+            <template if:true={shouldShowTotals}>
+              <tfoot>
+                <tr class="totalRow">
+                  <template for:each={totalRow.cells} for:item="cell">
+                    <td key={cell.key} class="totalCell">
+                      <div class="slds-truncate totalValue" title={cell.value}>
+                        <template if:true={cell.isTotal}>
+                          <strong>{cell.value}</strong>
+                        </template>
+                        <template if:false={cell.isTotal}>
+                          {cell.value}
+                        </template>
+                      </div>
+                    </td>
+                  </template>
+                </tr>
+              </tfoot>
+            </template>
+          </table>
+        </div>
+      </template>
+    </template>
+  </div>
+</template>

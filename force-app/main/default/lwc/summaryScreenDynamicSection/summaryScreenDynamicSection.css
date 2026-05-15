@@ -1,0 +1,64 @@
+:host {
+  display: block;
+  margin-bottom: 0.625em;
+}
+
+.sectionBox {
+  max-width: 53.63em;
+  background: var(--white);
+  padding: 0;     
+}
+
+.sectionHeader {
+  display: flex;      
+  align-items: center;
+  cursor: pointer;
+  padding: 1.5rem;   
+}
+
+.sectionBodyWrapper {
+  display: flex;
+  padding: 0.75rem;
+}
+
+.sectionBody {
+  flex: 1 1 auto;
+}
+
+.chevronColumn {
+  flex: 0 0 25px;
+  max-width: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chevronColumn lightning-icon { 
+  margin: 0; 
+}
+
+.sectionHeader:hover {
+  background: var(--base-lighter);
+}
+
+.collapseTitle { 
+  color: var(--headerColor, var(--base-darkest)); 
+}
+
+/* Bare mode styling - remove borders and padding when embedded */
+:host(.isBare) {
+  margin-bottom: 0;
+}
+
+:host(.isBare) .sectionBox {
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  padding: 0;
+  margin-bottom: 0;
+  max-width: none;
+}
+
+:host(.isBare) .sectionBodyWrapper {
+  padding: 0;
+}

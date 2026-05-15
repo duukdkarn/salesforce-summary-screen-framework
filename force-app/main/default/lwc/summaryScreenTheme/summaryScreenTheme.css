@@ -1,0 +1,46 @@
+/**
+ * summaryScreenTheme.css
+ *
+ * Defines all custom CSS properties (design tokens) consumed by the
+ * Summary Screen framework components. Override any variable here to
+ * match your org's brand without touching individual component styles.
+ *
+ * Usage: place <c-summary-screen-theme /> once on the page (e.g. inside
+ * your host component template) before any summary screen components.
+ * Because CSS custom properties inherit through the DOM, all child
+ * components will pick up these values automatically.
+ *
+ * ── Base palette ────────────────────────────────────────────────────────────
+ * --white          Card and section backgrounds
+ * --base           Primary label text color
+ * --base-lighter   Hover backgrounds, borders, disabled badge backgrounds
+ * --base-dark      Value text, table cell text, badge text
+ * --base-darkest   Section heading text
+ * --base-darker    Table totals row border
+ *
+ * ── Semantic colors ─────────────────────────────────────────────────────────
+ * --success-lighter  ENABLED badge background
+ * --success-dark     ENABLED badge icon and border
+ * --warning-lighter  Info banner background
+ * --warning-dark     Info banner border and icon
+ */
+
+:host {
+    display: contents; /* invisible wrapper — no layout impact */
+
+    /* ── Base palette ───────────────────────────────────────────────────── */
+    --white:         #ffffff;
+    --base:          #444444;        /* label text — medium grey          */
+    --base-lighter:  #f3f3f3;        /* hover / border — light grey       */
+    --base-dark:     #333333;        /* value text — dark grey            */
+    --base-darkest:  #111111;        /* headings — near black             */
+    --base-darker:   #666666;        /* totals border — mid-dark grey     */
+
+    /* ── Semantic: success (ENABLED badges) ────────────────────────────── */
+    --success-lighter: #e3fcef;      /* soft green background             */
+    --success-dark:    #006644;      /* dark green icon / text            */
+
+    /* ── Semantic: warning (info banner) ───────────────────────────────── */
+    --warning-lighter: #fffae6;      /* soft amber background             */
+    --warning-dark:    #ff8b00;      /* amber border and icon             */
+}

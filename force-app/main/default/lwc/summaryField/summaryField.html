@@ -1,0 +1,23 @@
+<template>
+  
+<dl class="slds-grid slds-gutters slds-grid_align-spread">
+    <dt class="slds-col slds-size_5-of-12">
+        <span class="formatSFLabel body1">{label}</span>
+    </dt>
+    <dd class="slds-col slds-size_7-of-12 slds-grid slds-align-items_center">
+      <template if:true={isBadge}>
+        <lightning-badge label={value} icon-name={iconName} icon-position="left" class={badgeClass}></lightning-badge>
+      </template>
+
+      <!-- Rich text mode -->
+      <template if:false={isBadge}>
+        <lightning-formatted-rich-text value={value} class="formatSFValue body1"></lightning-formatted-rich-text>
+      </template>
+    </dd>
+</dl>
+
+  <!-- optional horizontal rule -->
+  <template if:true={hrRequired}>
+    <div class="slds-border_bottom slds-var-m-vertical_small"></div>
+  </template>
+</template>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Summary Screen Demo</masterLabel>
+    <description>Demo version of the Summary Screen framework. Uses Account and Contact — deploys to any Salesforce org with zero configuration.</description>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__FlowScreen</target>
+        <target>lightning__HomePage</target>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="requestId"   type="String"  label="Account Id" />
+            <property name="sourceType"  type="String"  label="Demo Type"
+                datasource="demo1,demo2,demo3,demo4" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="summaryScreenMultiSection">
+    <apiVersion>63.0</apiVersion>
+    <isExposed>false</isExposed>
+    <masterLabel>Summary Screen Multi-Section</masterLabel>
+    <description>Renders a container with multiple collapsible sub-sections (e.g., Namespace Requirements, Cloud Service Details) for the Summary Screen.</description>
+</LightningComponentBundle>

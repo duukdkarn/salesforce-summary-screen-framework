@@ -1,0 +1,83 @@
+.sectionBox {
+  max-width: 53.63em;
+  margin-bottom: 0.625em;
+  background: var(--white);
+  padding: 0;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 1.5rem;
+}
+
+.sectionHeader:hover {
+  background: var(--base-lighter);
+}
+
+.chevronColumn {
+  flex: 0 0 25px;
+  max-width: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chevronColumn lightning-icon { margin: 0; }
+
+.collapseTitleContainer {
+  flex: 1;
+  padding-left: 0; 
+}
+
+.collapseTitle { color: var(--base-darkest); }
+
+.sectionBodyWrapper {
+  display: flex;
+  padding: 0.75rem; 
+}
+
+.sectionBody { flex: 1 1 auto; }
+
+.additionalContactHeader {
+  align-items: center;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  margin-left: 2rem;
+  margin-top: 0.5rem;
+}
+
+.additionalContactHeader:hover { background: var(--base-lighter); }
+
+.additionalContactHeader .collapseTitle { margin-left: 0.625rem; }
+
+.additionalContactItem { margin-bottom: 0.625em; }
+
+.sectionGrid { margin: 0; }
+
+.sectionGrid .slds-col { padding: 0; }
+
+.sectionHeader,
+.additionalContactHeader {
+  column-gap: .75rem; 
+}
+
+/* ADD: Bare mode styling - only affects outer container */
+:host(.isBare) {
+  margin-bottom: 0;
+}
+
+:host(.isBare) .sectionBox {
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  padding: 0;
+  margin-bottom: 0;
+  max-width: none;
+}
+
+/* In bare mode, remove the left margin from sub-sections since there's no main chevron */
+:host(.isBare) .additionalContactHeader {
+  margin-left: 0;
+}

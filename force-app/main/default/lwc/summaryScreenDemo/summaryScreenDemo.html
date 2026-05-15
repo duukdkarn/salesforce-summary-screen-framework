@@ -1,0 +1,26 @@
+<template>
+    <!-- Theme tokens: remove or replace with your own theme component -->
+    <c-summary-screen-theme></c-summary-screen-theme>
+
+    <div class="slds-m-around_medium">
+
+        <!-- Sections -->
+        <template for:each={orderedSections} for:item="sec">
+            <template if:true={sec.isComposite}>
+                <c-summary-screen-composite-section
+                    key={sec.key}
+                    section-title={sec.title}
+                    components={sec.components}>
+                </c-summary-screen-composite-section>
+            </template>
+        </template>
+
+        <!-- Loading overlay -->
+        <template if:true={loading}>
+            <div class="loading">
+                <lightning-spinner alternative-text="Loading summary data"></lightning-spinner>
+            </div>
+        </template>
+
+    </div>
+</template>

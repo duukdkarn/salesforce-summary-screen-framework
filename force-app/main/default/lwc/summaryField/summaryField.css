@@ -1,0 +1,40 @@
+:host .slds-grid {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  :host .slds-grid .slds-col {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .formatSFLabel {
+    color: var(--base);
+    margin-left: 0;
+    padding-left: 0;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  
+  .formatSFValue {
+    color: var(--base-darkest);
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin: 0;
+  }
+
+.badgeIcon     { margin-right:.25rem; }
+.summaryFieldRow { align-items: center; }
+
+.badgeEnabled {
+  --slds-c-badge-color-background: var(--success-lighter);
+  --slds-c-badge-icon-color-foreground: var(--success-dark);
+  --slds-c-badge-text-color: var(--base-dark);
+  --slds-c-badge-radius-border: 4px;
+}
+
+.badgeDisabled {
+  --slds-c-badge-radius-border: 4px;
+  --slds-c-badge-color-background: var(--base-lighter);
+  --slds-c-badge-text-color: var(--base-dark);
+}

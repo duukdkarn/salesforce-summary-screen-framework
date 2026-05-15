@@ -1,0 +1,39 @@
+<template>
+  <div class="sectionBox slds-box slds-theme_default">
+    <!-- Header (hidden in bare mode) -->
+    <template if:true={showHeader}>
+      <div class="slds-grid sectionHeader slds-p-vertical_x-small slds-p-horizontal_small" role="button" tabindex="0" aria-expanded={expanded} onclick={toggleExpanded} onkeydown={handleKeydown}>
+        <div class="chevronColumn slds-m-right_small">
+          <lightning-icon icon-name={chevronIcon} size="xx-small" alternative-text="Toggle section"></lightning-icon>
+        </div>
+        <div class="slds-col collapseTitleContainer">
+          <h4 class={computedTitleClass} title={title}>{title}</h4>
+        </div>
+      </div>
+    </template>
+    
+    <!-- Body (always visible in bare mode, collapsible otherwise) -->
+    <template if:true={showBody}>
+      <div class="sectionBodyWrapper slds-grid slds-p-horizontal_small slds-p-bottom_small">
+        <!-- Spacer column (only when not bare) -->
+        <template if:false={bare}>
+          <div class="chevronColumn slds-m-right_small"></div>
+        </template>
+        <div class="sectionBody slds-col" role="list" aria-label="Field details">
+          <slot name="extra"></slot>
+          <!-- fields list -->
+          <template for:each={fields} for:item="field">
+            <c-summary-field
+              key={field.label}
+              label={field.label}
+              value={field.value}
+              hr-required={field.hrRequired}
+              render-as-badge={renderAsBadge}
+              role="listitem" 
+            ></c-summary-field>
+          </template>
+        </div>
+      </div>
+    </template>
+  </div>
+</template>

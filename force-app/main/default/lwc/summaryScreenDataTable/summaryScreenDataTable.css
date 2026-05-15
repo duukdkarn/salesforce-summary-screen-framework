@@ -1,0 +1,97 @@
+/* ---------- wrapper (no interior padding) ---------- */
+.sectionBox {
+  max-width: 53.63em;
+  margin-bottom: 0.625em;
+  background: var(--white);
+  padding: 0;
+}
+
+/* ---------- header strip ---------- */
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 1.5rem;
+}
+.sectionHeader:hover {
+  background: var(--base-lighter);
+}
+
+/* ---------- chevron column ---------- */
+.chevronColumn {
+  flex: 0 0 25px;
+  max-width: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chevronColumn lightning-icon { margin: 0; }
+
+/* ---------- title container ---------- */
+.collapseTitleContainer {
+  flex: 1;
+  padding-left: 0;
+}
+.collapseTitle { color: var(--base-darkest); }
+
+/* ---------- body row (visible when expanded) ---------- */
+.sectionBodyWrapper {
+  display: flex;
+  padding: 0.75em;
+}
+.sectionBody { flex: 1 1 auto; }
+
+/* ---------- table styling ---------- */
+.tableContainer {
+  margin-top: 1.25rem;
+  border: 1px solid var(--base-lighter);
+  border-radius: 0.5em;
+  overflow-x: auto;
+}
+
+.tableContainer th {
+  background: var(--white) !important;
+}
+
+.tableContainer table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableContainer th,
+.tableContainer td {
+  padding: 24px;
+  border-bottom: 1px solid var(--base-lighter);
+  color: var(--base-dark);
+}
+
+.tableContainer tr:last-of-type td {
+  border-bottom: none;
+}
+
+.tableContainer {
+  margin-top: 1.25rem;
+  border: 1px solid var(--base-lighter);
+  border-radius: 0.5em;
+  overflow-x: auto;
+}
+
+/* When used inside another section (bare mode), kill the inner card frame */
+:host(.isBare) .sectionBox.slds-box.slds-theme_default {
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+  padding: 0;
+}
+
+.totalRow {
+  border-top: 2px solid var(--base-darker);
+}
+
+.totalCell {
+  font-weight: bold;
+}
+
+.totalValue {
+  font-weight: bold;
+}

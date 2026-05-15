@@ -1,0 +1,69 @@
+<template>
+    <div class="sectionBox slds-box slds-theme_default">
+        <!-- Header - identical to other section components -->
+        <div class="sectionHeader" role="button" tabindex="0" aria-expanded={isVisible} aria-controls="composite-body" onclick={toggleSection} onkeydown={handleKeydown}>
+            <div class="chevronColumn">
+                <lightning-icon icon-name={iconName} size="xx-small"></lightning-icon>
+            </div>
+            <div class="collapseTitleContainer">
+                <span class="collapseTitle slds-text-heading_small">{sectionTitle}</span>
+            </div>
+        </div>
+        
+        <!-- Composite Body - contains multiple sub-components -->
+        <template if:true={isVisible}>
+            <div class="sectionBodyWrapper">
+                <div class="chevronColumn"></div>
+                <div class="sectionBody">
+                    <template for:each={processedComponents} for:item="component">
+                        <!-- Dynamic Section (isDynamic) -->
+                        <template if:true={component.isDynamic}>
+                            <c-summary-screen-dynamic-section 
+                                key={component.id}
+                                bare
+                                title={component.title}
+                                fields={component.fields}
+                                render-as-badge={component.renderAsBadge}>
+                            </c-summary-screen-dynamic-section>
+                        </template>
+                        
+                        <!-- Table Section (isTable) -->
+                        <template if:true={component.isTable}>
+                            <c-summary-screen-data-table 
+                                key={component.id}
+                                bare
+                                table-title={component.title}
+                                columns={component.columns} 
+                                table-data={component.data}
+                                total-columns={component.totalColumns}
+                                total-label={component.totalLabel}>
+                            </c-summary-screen-data-table>
+                        </template>
+
+                        <!-- Multi-Section (isMulti) -->
+                        <template if:true={component.isMulti}>
+                            <c-summary-screen-multi-section
+                                key={component.id}
+                                bare
+                                section-title={component.title}
+                                section-list={component.list}
+                                sub-header-class={component.subHeaderSize}>
+                            </c-summary-screen-multi-section>
+                        </template>
+
+                        <!-- Documents Section (isDocuments) -->
+                        <template if:true={component.isDocuments}>
+                            <c-summary-screen-documents
+                                key={component.id}
+                                bare
+                                section-title={component.sectionTitle}
+                                fields={component.fields}
+                                documents={component.documents}>
+                            </c-summary-screen-documents>
+                        </template>
+                    </template>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

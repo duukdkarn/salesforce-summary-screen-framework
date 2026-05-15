@@ -1,0 +1,58 @@
+/* Identical styling to other section components */
+.sectionBox {
+    max-width: 53.63em;
+    margin-bottom: 0.625em;
+    background: var(--white);
+    padding: 0;
+}
+
+.sectionHeader {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 1.5rem;
+    column-gap: 0.75rem;
+}
+
+.sectionHeader:hover {
+    background: var(--base-lighter);
+}
+
+.chevronColumn {
+    flex: 0 0 25px;
+    max-width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chevronColumn lightning-icon { 
+    margin: 0; 
+}
+
+.collapseTitleContainer {
+    flex: 1;
+    padding-left: 0; 
+}
+
+.collapseTitle { 
+    color: var(--base-darkest); 
+}
+
+.sectionBodyWrapper {
+    display: flex;
+    padding: 0.75rem;
+}
+
+.sectionBody { 
+    flex: 1 1 auto; 
+}
+
+/* Spacing between sub-components */
+.sectionBody > * {
+    margin-bottom: 1rem;
+}
+
+.sectionBody > *:last-child {
+    margin-bottom: 0;
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="summaryScreenCompositeSection">
+    <apiVersion>60.0</apiVersion>
+    <isExposed>false</isExposed>
+    <masterLabel>Summary Screen Composite Section</masterLabel>
+    <description>Renders a container with multiple sub-components (tables, dynamic sections, etc.) within a single collapsible section for the Summary Screen.</description>
+</LightningComponentBundle>

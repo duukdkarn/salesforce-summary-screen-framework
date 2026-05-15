@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="summaryScreenDynamicSection">
+    <apiVersion>60.0</apiVersion>
+    <isExposed>false</isExposed>
+    <masterLabel>Summary Screen Dynamic Section</masterLabel>
+    <description>Collapsible single-section card with slot-based content for the Summary Screen framework.</description>
+</LightningComponentBundle>

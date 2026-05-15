@@ -1,0 +1,43 @@
+<template>
+  <div class="sectionBox slds-box slds-theme_default">
+    <!-- Main header (hidden in bare mode) -->
+    <template if:true={showHeader}>
+      <div class="sectionHeader slds-grid slds-theme_default" role="button" tabindex="0" aria-expanded={isVisible} onclick={toggleContainer} onkeydown={handleContainerKeydown}>
+        <div class="chevronColumn">
+          <lightning-icon icon-name={containerIcon} size="xx-small"></lightning-icon>
+        </div>
+        <div class="slds-col collapseTitleContainer">
+          <h4 class="collapseTitle slds-text-heading_small">{sectionTitle}</h4>
+        </div>
+      </div>
+    </template>
+    
+    <!-- Body (always visible in bare mode, collapsible otherwise) -->
+    <template if:true={showBody}>
+      <template for:each={localSections} for:item="sec">
+        <div key={sec.id} class="additionalContactItem">
+          <!-- Individual sub-section headers (ALWAYS VISIBLE - not affected by bare mode) -->
+          <div class="additionalContactHeader slds-grid slds-theme_shade" role="button" tabindex="0" aria-expanded={sec.isSectionVisible} data-id={sec.id} onclick={toggleSubSection} onkeydown={handleSubKeydown}>
+            <div class="chevronColumn slds-m-right_small">
+              <lightning-icon icon-name={sec.icon} size="xx-small"></lightning-icon>
+            </div>
+            <div class="slds-col collapseTitleContainer">
+              <h4 class={subSectionTitleClass}>{sec.sectionTitle}</h4>
+            </div>
+          </div>
+          <!-- Individual sub-section content -->
+          <template if:true={sec.isSectionVisible}>
+            <div class="sectionBodyWrapper">
+              <div class="chevronColumn slds-m-right_small"></div>
+              <div class="sectionBody" role="list" aria-label="Field details">
+                <template for:each={sec.fields} for:item="field">
+                  <c-summary-field key={field.label} label={field.label} value={field.value} hr-required={field.hrRequired} render-as-badge={field.renderAsBadge}></c-summary-field>
+                </template>
+              </div>
+            </div>
+          </template>
+        </div>
+      </template>
+    </template>
+  </div>
+</template>

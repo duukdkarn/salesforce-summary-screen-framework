@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="summaryField">
+    <apiVersion>63.0</apiVersion>
+    <isExposed>false</isExposed>
+    <masterLabel>Summary Field</masterLabel>
+    <description>Renders a single label / value pair for the Summary Screen and handles optional horizontal rule spacing.</description>
+</LightningComponentBundle>
